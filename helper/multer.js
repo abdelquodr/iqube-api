@@ -10,8 +10,8 @@ var storage = multer.diskStorage({
 //filters file before upload
 var imageFilter = function (req, file, cb) {
     // accept image files only
-    // if (!file.originalname.match(/\.(jpg|jpeg|png)$/i)) {
-    if (file.mimetype) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png)$/i)) {
+        // if (file.mimetype) {
         req.uploadError = "Only image files are allowed!";
         cb(null, false)
     }

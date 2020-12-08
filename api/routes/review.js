@@ -8,6 +8,6 @@ const UserMiddleware = require('../middleware/userMiddleware')
 
 const reviewRouter = express.Router()
 
-reviewRouter.post('/:apartmentId', imageMulter, ...ReviewMiddleware.userReview(), ReviewController.review)
+reviewRouter.post('/:apartmentId', UserMiddleware.verifyToken, imageMulter, ...ReviewMiddleware.userReview(), ReviewController.review)
 
 module.exports = reviewRouter
